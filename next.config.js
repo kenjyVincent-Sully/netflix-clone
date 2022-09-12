@@ -5,7 +5,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  "next-transpile-modules": ["three"],
 };
 
 module.exports = nextConfig;
