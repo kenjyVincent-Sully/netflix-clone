@@ -96,20 +96,34 @@ export const Nav = () => {
           </ul>
         )}
       </Menu>
+      {vesionMobile ? (
+        <NavAction>
+          <Link href="/search">
+            <SearchIcon />
+          </Link>
 
-      <NavAction>
-        <Link href="/search">
-          <SearchIcon />
-        </Link>
-        <Link href="/direct">Direct</Link>
-        <Link href="/jeunesse">Jeunesse</Link>
-        <Link href="/notification">
-          <NotificationsIcon />
-        </Link>
-        <Link href="/avartar">
-          <Image src={Avatar} alt="Avatar icon" width={30} height={30} />
-        </Link>
-      </NavAction>
+          <Link href="/direct">Direct</Link>
+          <Link href="/jeunesse">Jeunesse</Link>
+          <Link href="/notification">
+            <NotificationsIcon />
+          </Link>
+          <Link href="/avartar">
+            <Image src={Avatar} alt="Avatar icon" width={30} height={30} />
+          </Link>
+        </NavAction>
+      ) : (
+        <NavAction>
+          <Link href="/search">
+            <SearchIcon />
+          </Link>
+          <Link href="/notification">
+            <NotificationsIcon />
+          </Link>
+          <Link href="/avartar">
+            <Image src={Avatar} alt="Avatar icon" width={30} height={30} />
+          </Link>
+        </NavAction>
+      )}
     </Header>
   );
 };

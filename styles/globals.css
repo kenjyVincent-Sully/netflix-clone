@@ -36,11 +36,11 @@ li {
   }
   body {
     color: white;
-    background: black;
+    background: #141414;
   }
 }
 
 .scroll {
   background-color: #0048f3;
-  height: 6000px;
+  height: 600px;
 }

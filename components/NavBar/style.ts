@@ -4,7 +4,7 @@ import Devices from "../../helper/Devices";
 const Header = styled.header<{ background: boolean }>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   position: fixed;
   width: 100%;
@@ -19,9 +19,9 @@ const Header = styled.header<{ background: boolean }>`
   font-weight: 100;
   transition: background-color 0.5s ease-in-out;
 
-  /* @media ${Devices.mobile} {
-    height: 60px;
-  } */
+  @media ${Devices.mobile} {
+    justify-content: space-between;
+  }
 `;
 
 const NavAction = styled.div`
