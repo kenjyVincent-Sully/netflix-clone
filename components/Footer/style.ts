@@ -48,6 +48,7 @@ const Button = styled.button`
   margin-bottom: 20px;
   padding: 0.5em;
   border: 1px solid;
+  background-color: transparent;
 `;
 
 export { ContentLink, ListFooter, Wrapper, Button };

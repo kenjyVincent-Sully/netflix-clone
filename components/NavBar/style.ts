@@ -18,7 +18,7 @@ const Header = styled.header<{ background: boolean }>`
 
   font-weight: 100;
   transition: background-color 0.5s ease-in-out;
-
+  z-index: 10;
   @media ${Devices.mobile} {
     justify-content: space-between;
   }

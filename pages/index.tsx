@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import { Layout } from "../layout";
-import styles from "../styles/Home.module.css";
+import { Banner } from "../components/Banner";
 
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className="scroll"></div>
+      <Banner />
     </Layout>
   );
 };

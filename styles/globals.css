@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
     Droid Sans, Helvetica Neue, sans-serif;
+
+  /* font-size: 15px; */
 }
 
 a {
@@ -21,11 +23,6 @@ ul {
   margin: 0;
 }
 
-button {
-  background: none;
-  border: none;
-}
-
 li {
   display: inline-block;
 }
@@ -38,9 +35,4 @@ li {
     color: white;
     background: #141414;
   }
-}
-
-.scroll {
-  background-color: #0048f3;
-  height: 600px;
 }
