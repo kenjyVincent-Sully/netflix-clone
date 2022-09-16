@@ -14,8 +14,17 @@ export class Movie extends API {
     };
   }
 
-  getTopMovies(): Promise<any> {
-    return this.get("/movie/top_rated", { ...this.getBaseParams(), page: 1 });
+  getGenresLists(): Promise<any> {
+    return this.get("/genre/movie/list", this.getBaseParams());
+  }
+
+  getNetflixOriginals(): Promise<any> {
+    const networks = { with_networks: "213" };
+    const params = {
+      ...this.getBaseParams(),
+      ...networks,
+    };
+    return this.get("/discover/tv", params);
   }
   getTrending(): Promise<any> {
     return this.get("/trending/all/week", this.getBaseParams());
@@ -23,7 +32,7 @@ export class Movie extends API {
   getTopRated(): Promise<any> {
     return this.get("/movie/top_rated", this.getBaseParams());
   }
-  getGenres(genre: string): Promise<any> {
+  getGenre(genre: string): Promise<any> {
     const genreParam = genre ? { with_genres: genre } : {};
     const params = {
       ...this.getBaseParams(),

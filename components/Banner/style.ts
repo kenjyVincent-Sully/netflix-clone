@@ -2,13 +2,18 @@ import styled from "styled-components";
 import Devices from "../../helper/Devices";
 
 const Hero = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 56.25vw;
   position: relative;
-  width: 100%;
+  z-index: 1;
+`;
 
+const ContentHero = styled.div`
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  position: relative;
+  padding-bottom: 40%;
+  margin-bottom: 24px;
+  z-index: 1;
   &::after {
     content: "";
     display: block;
@@ -18,7 +23,7 @@ const Hero = styled.div`
     bottom: 0;
     background: linear-gradient(
       180deg,
-      rgba(31, 31, 31, 0),
+      rgba(31, 31, 31, 0) 10%,
       rgba(31, 31, 31, 0.5),
       #111
     );
@@ -26,15 +31,23 @@ const Hero = styled.div`
 `;
 
 const BannerContent = styled.div`
+  width: 100%;
   position: absolute;
-  bottom: 35%;
+  height: 56.25vw;
+`;
+
+const Description = styled.div`
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   left: 4%;
   top: 0;
-  width: 70vw;
-  font-size: 2.2vw;
+  font-size: 1.2vw;
+  width: 50%;
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
+  z-index: 2;
 
   p {
     font-weight: 100;
@@ -42,7 +55,6 @@ const BannerContent = styled.div`
 
   @media ${Devices.mobile} {
     width: 36%;
-    font-size: 1.2vw;
   }
 `;
 
@@ -58,8 +70,7 @@ const ContentButton = styled.div`
     font-weight: 300;
     border: none;
     cursor: pointer;
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 1.2vw;
 
     &:nth-child(1) {
       background: #fff;
@@ -90,4 +101,4 @@ const ContentButton = styled.div`
     }
   }
 `;
-export { Hero, BannerContent, ContentButton };
+export { Hero, BannerContent, ContentButton, Description, ContentHero };

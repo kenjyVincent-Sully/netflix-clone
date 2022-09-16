@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
-import { Movie as MoviesAPI } from "../../pages/api/movies";
+import { Movie as MovieAPI } from "../../pages/api/movies";
 import Button from "@mui/material/Button";
 import InfoIcon from "@mui/icons-material/Info";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import { Hero, BannerContent, ContentButton } from "./style";
+import {
+  Hero,
+  BannerContent,
+  ContentButton,
+  ContentHero,
+  Description,
+} from "./style";
 import { Movie } from "../../types/Movie";
 
 export const Banner = () => {
-  const [movies, setMovies] = useState<Movie | any>([]);
-  const { original_title, title, backdrop_path, overview } = movies as Movie;
+  const [movie, setMovie] = useState<Movie | any>([]);
+  const { original_title, title, backdrop_path, overview } = movie as Movie;
 
   const truncateText = (string: string, nb: number) => {
     const text = string;
@@ -24,30 +30,34 @@ export const Banner = () => {
   };
 
   useEffect(() => {
-    new MoviesAPI()
+    new MovieAPI()
       .getTrending()
       .then(({ results }) => {
-        setMovies(results[Math.floor(Math.random() * results.length - 1)]);
+        setMovie(results[Math.floor(Math.random() * results.length - 1)]);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <Hero style={BannerImg}>
-      <BannerContent>
-        <h1>{title || original_title}</h1>
-        <p>{truncateText(overview, 200)}</p>
-        <ContentButton>
-          <Button>
-            <PlayArrowIcon />
-            Lecture
-          </Button>
-          <Button>
-            <InfoIcon />
-            Plus d'infos
-          </Button>
-        </ContentButton>
-      </BannerContent>
+      <ContentHero>
+        <BannerContent>
+          <Description>
+            <h1>{title || original_title}</h1>
+            <p>{truncateText(overview, 200)}</p>
+            <ContentButton>
+              <Button>
+                <PlayArrowIcon />
+                Lecture
+              </Button>
+              <Button>
+                <InfoIcon />
+                Plus d'infos
+              </Button>
+            </ContentButton>
+          </Description>
+        </BannerContent>
+      </ContentHero>
     </Hero>
   );
 };

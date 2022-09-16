@@ -34,7 +34,7 @@ export const Nav = () => {
       document.removeEventListener("scroll", translationNav);
       window.addEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
   return (
     <Header background={navBlack || (navBlack && toggleMenu)}>
