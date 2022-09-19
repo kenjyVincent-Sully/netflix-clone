@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Genre, Movie } from "../../types/Movie";
 import { ContentRow } from "./style";
-import { RowGenres } from "./RowGenres";
+import { Genres } from "./Genres";
 import { TopRated } from "./TopRated";
 import { NetflixOrigin } from "./NetflixOrigin";
 
@@ -14,7 +14,7 @@ export const Row: FC<{
     <ContentRow>
       <TopRated movies={topRated} />
       <NetflixOrigin movies={netflix} />
-      <RowGenres genres={genres} />
+      <Genres genres={genres} />
     </ContentRow>
   );
 };

@@ -1,10 +1,8 @@
-import { FC, useState, useEffect, Fragment } from "react";
-import { Movie as MovieAPI } from "../../pages/api/movies";
-import { Movie, Genre } from "../../types/Movie";
-
+import { FC, Fragment } from "react";
+import { Genre } from "../../types/Movie";
 import { ItemGenres } from "./ItemGenres";
 
-export const RowGenres: FC<{ genres: Genre[] }> = ({ genres }) => {
+export const Genres: FC<{ genres: Genre[] }> = ({ genres }) => {
   return (
     <Fragment>
       {genres.map((genre: Genre, i: number) => (

@@ -28,22 +28,10 @@ const BoxContent = styled.div`
     transition: transform 0.3s ease-in;
     cursor: pointer;
     object-fit: contain;
-
-    /* &:hover {
-        transform: scale(1, 2);
-      } */
-
-    /* @media ${Devices.mobile} {
-      width: 220px;
-      font-size: 1.2vw;
-    } */
   }
 `;
 
 const ContentImg = styled.div`
-  /* position: absolute; */
-  /* height: 122px; */
-
   border: 1px solid;
   margin-right: 5px;
   border-radius: 4px;

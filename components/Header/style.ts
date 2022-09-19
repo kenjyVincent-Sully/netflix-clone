@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Devices from "../../helper/Devices";
 
-const Header = styled.header<{ background: boolean }>`
+const HeaderStyle = styled.header<{ background: boolean }>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -32,15 +32,38 @@ const NavAction = styled.div`
 
   a {
     padding: 5px 10px;
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: none;
+    }
+
+    @media ${Devices.mobile} {
+      &:nth-child(2),
+      &:nth-child(3) {
+        display: block;
+      }
+    }
   }
 `;
 
-const Menu = styled.nav`
+const Nav = styled.nav`
+  display: none;
   li {
     margin-left: 20px;
   }
+  @media ${Devices.mobile} {
+    display: block;
+  }
 `;
 
+const NavMobile = styled.nav`
+  li {
+    margin-left: 20px;
+  }
+  @media ${Devices.mobile} {
+    display: none;
+  }
+`;
 const SubMenu = styled.li<{ open: boolean }>`
   ul {
     visibility: ${(props) => (props.open ? "visible" : "hidden")};
@@ -63,4 +86,4 @@ const SubMenu = styled.li<{ open: boolean }>`
   }
 `;
 
-export { Header, NavAction, Menu, SubMenu };
+export { HeaderStyle, NavAction, Nav, SubMenu, NavMobile };

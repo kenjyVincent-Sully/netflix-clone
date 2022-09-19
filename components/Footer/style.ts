@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const Wrapper = styled.footer`
   color: grey;
-  margin: 20px auto 0;
+  margin: 80px auto 0;
   max-width: 980px;
-  padding: 0 4%;
+  padding: 60px 4% 0;
   font-size: 13px;
 
   .copyright {
