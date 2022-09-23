@@ -25,6 +25,9 @@ li {
   display: inline-block;
 }
 
+.css-1nxlw3t-MuiPaper-root-MuiDialog-paper.MuiDialog-paperScrollBody {
+  border-radius: 10px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

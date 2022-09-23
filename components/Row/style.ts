@@ -7,6 +7,7 @@ const ContentRow = styled.div`
   h2 {
     font-size: 12px;
     font-weight: 500;
+    margin-right: 4px;
   }
 `;
 
@@ -21,7 +22,6 @@ const BoxContent = styled.div`
   position: relative;
 
   img {
-    /* width: 40vw; */
     height: 122px;
     margin-right: 0.25rem;
     border-radius: 4px;
@@ -63,5 +63,36 @@ const Skeleton = styled.div`
     }
   }
 `;
+const TitleSection = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 
-export { ContentRow, Skeleton, ContentImg, BoxContent };
+  &:hover {
+    div {
+      opacity: 1;
+      max-width: 100%;
+      right: 100%;
+      vertical-align: bottom;
+      white-space: nowrap;
+      transform: translate(0%);
+    }
+  }
+
+  div {
+    font-size: 0.9vw;
+    line-height: 0.8vw;
+    max-width: 0;
+    opacity: 0;
+    color: #54b9c5;
+    transform: translate(-100%);
+    transition: max-width 1s, opacity 1s, transform 0.75s;
+  }
+  svg {
+    font-size: 0.9vw;
+    position: relative;
+    top: 1px;
+  }
+`;
+
+export { ContentRow, Skeleton, ContentImg, BoxContent, TitleSection };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Movie as MovieAPI } from "../../pages/api/movies";
 import Button from "@mui/material/Button";
 import InfoIcon from "@mui/icons-material/Info";
@@ -10,10 +10,13 @@ import {
   ContentHero,
   Description,
 } from "./style";
+import { QuickView } from "../QuickView";
+import { QuickViewContext } from "../../context/QuickViewContext";
 import { Movie } from "../../types/Movie";
 
 export const Banner = () => {
   const [movie, setMovie] = useState<Movie | any>([]);
+  const { handleClick } = useContext(QuickViewContext);
   const { original_title, title, backdrop_path, overview } = movie as Movie;
 
   const truncateText = (string: string, nb: number) => {
@@ -50,13 +53,14 @@ export const Banner = () => {
                 <PlayArrowIcon />
                 Lecture
               </Button>
-              <Button>
+              <Button onClick={handleClick}>
                 <InfoIcon />
                 Plus d'infos
               </Button>
             </ContentButton>
           </Description>
         </BannerContent>
+        <QuickView />
       </ContentHero>
     </Hero>
   );

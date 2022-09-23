@@ -4,30 +4,31 @@ import Devices from "../../helper/Devices";
 const Hero = styled.div`
   position: relative;
   z-index: 1;
+  background-color: red;
+
+  .close {
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    z-index: 3;
+
+    &:hover {
+      background-color: transparent;
+    }
+    svg {
+      color: black;
+      height: 36px;
+      width: 36px;
+    }
+  }
 `;
 
 const ContentHero = styled.div`
-  top: 0px;
-  left: 0px;
-  right: 0px;
   position: relative;
-  padding-bottom: 40%;
+  padding-bottom: 70%;
   margin-bottom: 24px;
   z-index: 1;
-  &::after {
-    content: "";
-    display: block;
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(31, 31, 31, 0) 10%,
-      rgba(31, 31, 31, 0.5),
-      #111
-    );
-  }
+  background: linear-gradient(0deg, #181818, transparent 50%);
 `;
 
 const BannerContent = styled.div`
@@ -44,9 +45,7 @@ const Description = styled.div`
   justify-content: center;
   left: 4%;
   top: 0;
-  font-size: 1.2vw;
-  width: 50%;
-  text-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
+
   z-index: 2;
 
   p {
@@ -69,28 +68,26 @@ const ContentButton = styled.div`
     font-weight: 300;
     border: none;
     cursor: pointer;
-    font-size: 1.2vw;
     padding-left: 1rem;
     padding-right: 1.4rem;
+    color: #fff;
 
-    &:nth-child(1) {
+    &:hover {
+      background-color: transparent;
+    }
+    &.play {
       background: #fff;
       color: #000;
       &:hover {
         background: rgba(255, 255, 255, 0.75);
       }
     }
-    &:nth-child(2) {
-      background-color: rgba(109, 109, 110, 0.7);
+    &.more-info {
       color: #fff;
-      &:hover {
-        background: rgba(109, 109, 110, 0.4);
-      }
     }
 
     svg {
       margin-right: 5px;
-      font-size: 15px;
     }
 
     @media ${Devices.mobile} {
@@ -102,4 +99,17 @@ const ContentButton = styled.div`
     }
   }
 `;
-export { Hero, BannerContent, ContentButton, Description, ContentHero };
+
+const ContentAudio = styled.div`
+  position: absolute;
+  right: 0;
+`;
+
+export {
+  Hero,
+  BannerContent,
+  ContentButton,
+  Description,
+  ContentHero,
+  ContentAudio,
+};
