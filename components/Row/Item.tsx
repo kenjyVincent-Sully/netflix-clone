@@ -1,11 +1,14 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Movie } from "../../types/Movie";
 import { Skeleton, BoxContent } from "./style";
+import { QuickViewContext } from "../../context/QuickViewContext";
 
 export const Item: FC<{ movies: Movie[]; isLoading: boolean }> = ({
   movies,
   isLoading,
 }) => {
+  const { handleClick } = useContext(QuickViewContext);
+
   return (
     <BoxContent>
       {movies.map((movie: Movie) => {
@@ -15,7 +18,7 @@ export const Item: FC<{ movies: Movie[]; isLoading: boolean }> = ({
             ? `${process.env.NEXT_PUBLIC_PATH_IMG}${backdrop_path}`
             : `${process.env.NEXT_PUBLIC_PATH_IMG}${poster_path}`;
         return (
-          <div key={id}>
+          <div onClick={() => handleClick(id)} key={id}>
             {isLoading ? (
               <img src={img} alt={`${original_title} ` || ` ${title}`} />
             ) : (

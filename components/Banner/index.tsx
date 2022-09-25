@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { Movie as MovieAPI } from "../../pages/api/movies";
+import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import InfoIcon from "@mui/icons-material/Info";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -17,7 +18,7 @@ import { Movie } from "../../types/Movie";
 export const Banner = () => {
   const [movie, setMovie] = useState<Movie | any>([]);
   const { handleClick } = useContext(QuickViewContext);
-  const { original_title, title, backdrop_path, overview } = movie as Movie;
+  const { original_title, title, backdrop_path, overview, id } = movie as Movie;
 
   const truncateText = (string: string, nb: number) => {
     const text = string;
@@ -53,14 +54,14 @@ export const Banner = () => {
                 <PlayArrowIcon />
                 Lecture
               </Button>
-              <Button onClick={handleClick}>
+              <Button onClick={() => handleClick(id)}>
                 <InfoIcon />
                 Plus d'infos
               </Button>
             </ContentButton>
           </Description>
         </BannerContent>
-        <QuickView />
+        <QuickView id={id} />
       </ContentHero>
     </Hero>
   );

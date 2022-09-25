@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { GetStaticProps } from "next";
 import { Movie as MovieAPI } from "./api/movies";
-
 import { Layout } from "../layout";
 import { Banner } from "../components/Banner";
 import { Row } from "../components/Row/";

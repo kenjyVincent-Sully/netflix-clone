@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, FC } from "react";
+import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
@@ -21,19 +21,28 @@ import {
   Description,
   ContentAudio,
 } from "./style";
+import { Movie as MovieAPI } from "../../pages/api/movies";
+import { Movie } from "../../types/Movie";
 
-export const QuickView = () => {
+export const QuickView: FC<{ id: number }> = ({ id }) => {
   const [mute, setMute] = useState(true);
   const { handleClick, open } = useContext(QuickViewContext);
+  const router = useRouter();
 
   const handleMute = () => {
     mute ? setMute(true) : setMute(false);
   };
+
   return (
-    <Dialog open={open} onClose={handleClick} maxWidth="lg" scroll="body">
+    <Dialog
+      open={open}
+      onClose={() => router.push("/")}
+      maxWidth="lg"
+      scroll="body"
+    >
       <Hero>
         <ContentHero>
-          <Button className="close" onClick={handleClick}>
+          <Button className="close" onClick={() => handleClick(id)}>
             <CancelIcon />
           </Button>
           <BannerContent>

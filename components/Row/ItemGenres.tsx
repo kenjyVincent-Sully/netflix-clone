@@ -1,11 +1,13 @@
-import { FC, useState, useEffect, Fragment } from "react";
+import { FC, useState, useEffect, useContext } from "react";
 import { Movie as MovieAPI } from "../../pages/api/movies";
 import { Movie } from "../../types/Movie";
-import { Skeleton, ContentImg, BoxContent } from "./style";
+import { Skeleton, BoxContent } from "./style";
+import { QuickViewContext } from "../../context/QuickViewContext";
 
 export const ItemGenres: FC<{ id: number }> = ({ id }) => {
   const [movies, setMovies] = useState<Movie | any>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { handleClick } = useContext(QuickViewContext);
 
   useEffect(() => {
     new MovieAPI()
@@ -26,7 +28,7 @@ export const ItemGenres: FC<{ id: number }> = ({ id }) => {
             ? `${process.env.NEXT_PUBLIC_PATH_IMG}${backdrop_path}`
             : `${process.env.NEXT_PUBLIC_PATH_IMG}${poster_path}`;
         return (
-          <div key={id}>
+          <div onClick={() => handleClick(id)} key={id}>
             {isLoading ? (
               <img src={img} alt={`${original_title} ` || ` ${title}`} />
             ) : (
