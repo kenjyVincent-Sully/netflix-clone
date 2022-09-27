@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { Movie } from "../../types/Movie";
+import { Tv } from "../../types/Movie";
 import { Item } from "./Item";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { TitleSection } from "./style";
 
-export const NetflixOrigin: FC<{ movies: Movie[] }> = ({ movies }) => {
+export const NetflixOrigin: FC<{ movies: Tv[] }> = ({ movies }) => {
   return (
     <div>
       <TitleSection>

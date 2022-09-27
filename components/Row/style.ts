@@ -28,6 +28,7 @@ const BoxContent = styled.div`
     transition: transform 0.3s ease-in;
     cursor: pointer;
     object-fit: contain;
+    min-width: 220px;
   }
 `;
 

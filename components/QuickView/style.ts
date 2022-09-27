@@ -4,7 +4,10 @@ import Devices from "../../helper/Devices";
 const Hero = styled.div`
   position: relative;
   z-index: 1;
-  background-color: red;
+  color: #fff;
+
+  background-size: cover;
+  background-position: center center;
 
   .close {
     position: absolute;
@@ -25,10 +28,24 @@ const Hero = styled.div`
 
 const ContentHero = styled.div`
   position: relative;
-  padding-bottom: 70%;
-  margin-bottom: 24px;
+  padding-bottom: 50%;
   z-index: 1;
   background: linear-gradient(0deg, #181818, transparent 50%);
+
+  /* &::after {
+    content: "";
+    display: block;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(31, 31, 31, 0) 10%,
+      rgba(31, 31, 31, 0.5),
+      #111
+    );
+  } */
 `;
 
 const BannerContent = styled.div`
@@ -105,6 +122,63 @@ const ContentAudio = styled.div`
   right: 0;
 `;
 
+const DetailStyle = styled.div`
+  background: #181818;
+  color: #fff;
+  display: grid;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: center;
+  padding: 0px 2em 1em;
+  column-gap: 2em;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  font-size: 14px;
+  line-height: 20px;
+
+  .tag-left {
+    display: flex;
+    flex-wrap: wrap;
+    span {
+      margin-right: 1em;
+    }
+  }
+  .tag-right {
+    span {
+      color: #777;
+    }
+  }
+`;
+
+const SimilarMoviesContent = styled.div`
+  color: #fff;
+  padding: 0 2em;
+
+  .content-card {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 1em;
+
+    div {
+      background-color: #2f2f2f;
+      width: 240px;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: lighter;
+
+      img {
+        object-fit: initial;
+      }
+    }
+    p {
+      color: #fff;
+      font-size: 14px;
+      font-weight: lighter;
+    }
+  }
+`;
+
 export {
   Hero,
   BannerContent,
@@ -112,4 +186,6 @@ export {
   Description,
   ContentHero,
   ContentAudio,
+  DetailStyle,
+  SimilarMoviesContent,
 };

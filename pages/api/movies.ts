@@ -1,3 +1,4 @@
+import { MediaType } from "../../types/Movie";
 import { API } from "./api";
 
 export class Movie extends API {
@@ -14,34 +15,41 @@ export class Movie extends API {
     };
   }
 
-  getGenresLists(): Promise<any> {
-    return this.get("/genre/movie/list", this.getBaseParams());
+  getGenresLists(mediaType: MediaType): Promise<any> {
+    return this.get(`/genre/${mediaType}/list`, this.getBaseParams());
   }
 
-  getNetflixOriginals(): Promise<any> {
+  getNetflixOriginals(mediaType: MediaType): Promise<any> {
     const networks = { with_networks: "213" };
     const params = {
       ...this.getBaseParams(),
       ...networks,
     };
-    return this.get("/discover/tv", params);
+    return this.get(`/discover/${mediaType}`, params);
   }
-  getTrending(): Promise<any> {
-    return this.get("/trending/all/week", this.getBaseParams());
+  getTrending(mediaType: MediaType): Promise<any> {
+    return this.get(`/trending/${mediaType}/week`, this.getBaseParams());
   }
-  getTopRated(): Promise<any> {
-    return this.get("/movie/top_rated", this.getBaseParams());
+  getTopRated(mediaType: MediaType): Promise<any> {
+    return this.get(`/${mediaType}/top_rated`, this.getBaseParams());
   }
-  getGenre(genre: string): Promise<any> {
+  getGenre(genre: string, mediaType: MediaType): Promise<any> {
     const genreParam = genre ? { with_genres: genre } : {};
     const params = {
       ...this.getBaseParams(),
       ...genreParam,
     };
-    return this.get("/discover/movie", params);
+    return this.get(`/discover/${mediaType}`, params);
   }
 
-  getDetails(id?: number): Promise<any> {
-    return this.get(`/movie/${id}`, this.getBaseParams());
+  getDetails(id: number, mediaType: MediaType): Promise<any> {
+    return this.get(`/${mediaType}/${id}`, this.getBaseParams());
+  }
+  getSimilarMovies(id: number, mediaType: MediaType): Promise<any> {
+    return this.get(`/${mediaType}/${id}/similar`, this.getBaseParams());
+  }
+
+  getCertification(): Promise<any> {
+    return this.get("/certification/movie/list", this.getBaseParams());
   }
 }

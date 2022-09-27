@@ -7,16 +7,17 @@ import { QuickViewContext } from "../../context/QuickViewContext";
 export const ItemGenres: FC<{ id: number }> = ({ id }) => {
   const [movies, setMovies] = useState<Movie | any>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { handleClick } = useContext(QuickViewContext);
+  const { handleClick, mediaType } = useContext(QuickViewContext);
 
   useEffect(() => {
     new MovieAPI()
-      .getGenre(id.toString())
+      .getGenre(id.toString(), mediaType)
       .then(({ results }) => {
         setMovies(results);
         setIsLoading(true);
       })
       .catch((err) => console.log(err));
+    setIsLoading(false);
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Genre, Movie } from "../../types/Movie";
+import { Genre, Movie, Tv } from "../../types/Movie";
 import { ContentRow } from "./style";
 import { Genres } from "./Genres";
 import { TopRated } from "./TopRated";
@@ -7,7 +7,7 @@ import { NetflixOrigin } from "./NetflixOrigin";
 
 export const Row: FC<{
   genres: Genre[];
-  netflix: Movie[];
+  netflix: Tv[];
   topRated: Movie[];
 }> = ({ genres, topRated, netflix }) => {
   return (
